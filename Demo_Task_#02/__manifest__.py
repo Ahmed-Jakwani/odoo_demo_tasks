@@ -7,7 +7,7 @@
     'author': 'Ahmed Jakwani',
     'depends': ['sale'],
     'data': [
-        'report/sale_report_inherit.xml',
+        # 'report/sale_report_inherit.xml',
     ],
     'demo': [],
     'application': True,
