@@ -14,6 +14,8 @@ class SaleOrderLine(models.Model):
         # Iterating loop over the records
         for line in self:
             
+            line.analytic_account_name = ''
+            
             # Checking if the record has value in analytic_distribution 
             if line.analytic_distribution:
 
@@ -29,7 +31,6 @@ class SaleOrderLine(models.Model):
                             
                             #Assiging value to the field and applying line which is a loop variable in the template                            
                             line.analytic_account_name = analytic_account
+                        
                             
-                        else:
-                            line.analytic_account_name = ''
                     
