@@ -5,13 +5,13 @@
     <template id="sale_report_inherit" inherit_id="sale.report_saleorder_document">
         
         <!-- Adding the headers of Delivered and Analytic in the template -->
-        <xpath expr="//table[@class='o_has_total_table table o_main_table table-borderless']/thead/tr/th[@name='th_quantity']" position="after">
+        <xpath expr="//th[@name='th_quantity']" position="after">
             <th name="th_delivered" class="text-end">Delivered</th>
             <th name="th_analyticdescription" class="text-end">Analytic Distribution</th>
         </xpath>
 
         <!-- Adding the value of the two columns in the template -->
-        <xpath expr="//tbody[@class='sale_tbody']/t/t/t/tr/t//td[@name='td_quantity']" position="after">
+        <xpath expr="//td[@name='td_quantity']" position="after">
             <td name="td_delivered" class="text-end">
                 <span t-field="line.qty_delivered"/>
             </td>
@@ -27,13 +27,13 @@
     <template id="invoice_report_inherit" inherit_id="account.report_invoice_document">
         
         <!-- Adding the headers of Delivered and Analytic in the template -->
-        <xpath expr="//table[@class='o_has_total_table table o_main_table table-borderless']/thead/tr/th[@name='th_quantity']" position="after">
+        <xpath expr="//th[@name='th_quantity']" position="after">
             <th name="th_delivered" class="text-end">Delivered</th>
             <th name="th_analyticdescription" class="text-end">Analytic Distribution</th>
         </xpath>
 
         <!-- Adding the value of the two columns in the template -->
-        <xpath expr="//tbody[@class='sale_tbody']//td[@name='td_quantity']" position="after">
+        <xpath expr="//td[@name='td_quantity']" position="after">
             <td name="td_delivered" class="text-end">
                 <span t-field="line.qty_delivered"/>
             </td>
