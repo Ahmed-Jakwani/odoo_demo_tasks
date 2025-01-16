@@ -7,6 +7,7 @@
     'author': 'Ahmed Jakwani',
     'depends': ['base', 'sale'],
     'data': [
+        'views/sale_order.xml',
         'report/sale_report_inherit.xml',
         'report/invoice_report_inherit.xml',
     ],

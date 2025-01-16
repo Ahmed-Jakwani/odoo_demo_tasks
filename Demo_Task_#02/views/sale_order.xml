@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-08"?>
+
+<odoo>
+
+    <!-- Inheriting the stock.picking form view -->
+    <record id="view_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='analytic_distribution'][2]" position="after">
+                <field name="analytic_account_name" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

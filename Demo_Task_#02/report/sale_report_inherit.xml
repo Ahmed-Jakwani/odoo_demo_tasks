@@ -18,7 +18,7 @@
 
             <!-- Adding the analytic distribution account name which is computed in the sale_order.py-->
             <td name="td_analyticdistribution" class="text-end" >
-                <span t-field="line.analytic_distribution"/>
+                <span t-field="line.analytic_account_name"/>
             </td>
         </xpath>
 
