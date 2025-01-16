@@ -9,8 +9,7 @@ class SaleOrder(models.Model):
     def write(self, vals):
         res = super(SaleOrder, self).write(vals)
         
-        #If any field value is changed in the sale.order.line model 
-        # then there will be order_line in the vals 
+        # (order_line), the field connects sale.order with sale.order.line
         if 'order_line' in vals: 
             
             for order in self:
