@@ -5,6 +5,8 @@ from odoo import models, api, fields
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    analytic_account_name = fields.Char(string="Analytic", compute='_compute_analytic_account_name')
+
     #Overiding the default write method which trigger when user edits any field in the record in the selected model  
     def write(self, vals):
         res = super(SaleOrder, self).write(vals)
@@ -41,6 +43,36 @@ class SaleOrder(models.Model):
                                     invoice_line.write({'analytic_distribution': line.analytic_distribution})
                                     
         return res
+
+    @api.depends('order_line.analytic_distribution')
+    def _compute_analytic_account_name(self):
+
+        # Iterating loop over the records
+        if 'order_line' in self: 
+
+            for order in self:
+                
+                for line in order.order_line:
+            
+            # Checking if the record has value in analytic_distribution 
+                    if line.analytic_distribution:
+
+                # Iterating in the record of analytic_distribution to get the ID
+                        for analytic_item in line.analytic_distribution.keys():
+                    
+                            if analytic_item: 
+
+                        # Getting the analytic account name from the ID
+                                analytic_account = self.env['account.analytic.account'].browse(int(analytic_item)).name
+                        
+                                if analytic_account:
+                            
+                            #Assiging value to the field and applying line which is a loop variable in the template                            
+                                    line.analytic_account_name = analytic_account
+                            
+                                else:
+                                    line.analytic_account_name = ''
+
 
 
                     
