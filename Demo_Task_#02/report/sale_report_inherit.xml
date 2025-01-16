@@ -11,7 +11,7 @@
         </xpath>
 
         <!-- Adding the value of the two columns in the template -->
-        <xpath expr="//tbody[@class='sale_tbody']//td[@name='td_quantity']" position="after">
+        <xpath expr="//tbody[@class='sale_tbody']/t/t/t/tr/t//td[@name='td_quantity']" position="after">
             <td name="td_delivered" class="text-end">
                 <span t-field="line.qty_delivered"/>
             </td>
