@@ -73,5 +73,4 @@ class ResPartner(models.Model):
         if error:
             raise ValidationError("\n".join(error))
 
-
         return super(ResPartner, self).write(values)
