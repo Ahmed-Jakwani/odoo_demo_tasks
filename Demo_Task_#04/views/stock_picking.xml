@@ -22,10 +22,10 @@
             <!-- As there are two Validate button applying conditions on one validate button 
                 and making the second validate invisible -->
             <xpath expr="//button[@name='button_validate'][1]" position="attributes">
-                <attribute name="invisible">{'': [('validate_rfa_button', '=', False)]}</attribute>
+                <attribute name="invisible">[('validate_rfa_button', '=', False)]</attribute>
             </xpath>
             <xpath expr="//button[@name='button_validate'][2]" position="attributes">
-                <attribute name="invisible">{'': [('validate_rfa_button', '=', False)]}</attribute>
+                <attribute name="invisible">[('validate_rfa_button', '=', False)]</attribute>
             </xpath>
 
 
@@ -44,10 +44,10 @@
 
             <!-- Making the Demand and Done column as read-only on specific condition -->
             <xpath expr="//field[@name='quantity']" position="attributes">
-                <attribute name="readonly">{[('parent.static_qty', '=', True)]}</attribute>
+                <attribute name="readonly">[('parent.static_qty', '=', True)]</attribute>
             </xpath>
             <xpath expr="//field[@name='product_uom_qty']" position="attributes">
-                <attribute name="readonly">{[('parent.static_qty', '=', True)]}</attribute>
+                <attribute name="readonly">[('parent.static_qty', '=', True)]</attribute>
             </xpath>
 
         </field>
