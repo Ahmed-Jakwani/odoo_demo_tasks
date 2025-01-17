@@ -17,7 +17,7 @@ class ResPartner(models.Model):
             
             # Searching as if the phone value is associated with any other record, 
             # if associated with multiple record then get the first match
-            validate_phone = self.search([('phone', '=', values['phone'])], limit = 1)
+            validate_phone = self.search([('phone', '=', values['phone']), ('id', '!=', self.id)], limit = 1)
             
             # If associated then add error message in the errors[]
             if validate_phone:
@@ -52,7 +52,7 @@ class ResPartner(models.Model):
             
             # Searching as if the phone value is associated with any other record, 
             # if associated with multiple record then get the first match
-            validate_phone = self.search([('phone', '=', values['phone'])], limit = 1)
+            validate_phone = self.search([('phone', '=', values['phone']), ('id', '!=', self.id)], limit = 1)
             
             # If associated then add error message in the errors[]
             if validate_phone:
