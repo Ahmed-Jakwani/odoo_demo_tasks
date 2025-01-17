@@ -8,7 +8,8 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='analytic_distribution']" position="after">
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='analytic_distribution']" position="after">
                 <field name="analytic_account_name" optional="hide"/>
             </xpath>
         </field>
