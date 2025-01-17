@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-08"?>
+
+<odoo>
+
+    <record id="groups_for_receipt_approval" model="res.groups">
+        <field name="name">GRN Approval</field>
+        <field name="category_id" ref="base.module_category_inventory_inventory"/>
+    </record>
+
+    <record id="groups_for_receipt_status" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="base.module_category_inventory_inventory"/>
+    </record>
+
+
+</odoo>
