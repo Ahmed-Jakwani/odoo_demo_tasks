@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-08"?>
+
+<odoo>
+
+    <!-- Inheriting the stock.picking form view -->
+    <record id="view_account_move_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='invoice_line_ids']/list/field[@name='analytic_distribution']" position="after">
+                <field name="analytic_account_name" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

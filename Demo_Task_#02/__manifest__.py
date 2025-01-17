@@ -8,6 +8,7 @@
     'depends': ['base', 'sale'],
     'data': [
         'views/sale_order.xml',
+        'views/account_move.xml',
         'report/sale_report_inherit.xml',
         'report/invoice_report_inherit.xml',
     ],
