@@ -1,6 +1,6 @@
 from odoo import api, fields, models
 
-# Demo Task 02: In the order report template, 
+# Demo Task 02: In the report template of account.move,  
 # add new fields which must be visible in the pdf and add analytic distribution field.
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
@@ -8,10 +8,8 @@ class AccountMoveLine(models.Model):
     # Creating a new field which will be calculated to get the analytic account name  
     analytic_account_name = fields.Char(string="Analytic", compute='_compute_analytic_account_name')
 
-    #Creating a compute method to get the analytic account name from the analytic distribution record 
     def _compute_analytic_account_name(self):
 
-        # Iterating loop over the records
         for line in self:
             
             line.analytic_account_name = ''
@@ -29,7 +27,7 @@ class AccountMoveLine(models.Model):
                         
                         if analytic_account:
                             
-                            #Assiging value to the field and applying line which is a loop variable in the template                            
+                            # Assiging value to the field                         
                             line.analytic_account_name = analytic_account
                         
                             

@@ -2,16 +2,18 @@
 
 <odoo>
 
-    <!-- Inheriting the stock.picking form view -->
+    <!-- Inheriting the sale.order form view -->
     <record id="view_sale_order_form_inherit" model="ir.ui.view">
         <field name="name">sale.order.form.inherit</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
 
+            <!-- Adding analytic account name in the sale.order.line -->
             <xpath expr="//field[@name='order_line']/list/field[@name='analytic_distribution']" position="after">
                 <field name="analytic_account_name" optional="hide"/>
             </xpath>
+            
         </field>
     </record>
 
