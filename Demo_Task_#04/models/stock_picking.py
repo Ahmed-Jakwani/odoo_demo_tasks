@@ -17,7 +17,7 @@ class StockPicking(models.Model):
     
     # if True, then Approve/Reject buttons becomes visible, if false then not.
     approve_reject_button = fields.Boolean(string="Show Approve Reject Button")
-,
+
     # if True, then Demand and Quantity fields becomes read-only, if false then not
     static_qty = fields.Boolean(string="Static Quantity")
 
