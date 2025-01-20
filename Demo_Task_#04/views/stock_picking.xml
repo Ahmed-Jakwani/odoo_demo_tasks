@@ -17,6 +17,7 @@
                 <field name="approve_reject_button" invisible="0"/>
                 <field name="static_qty" invisible="0"/>
             </xpath>
+        </field>
     </record>
 
 </odoo>
@@ -50,4 +51,4 @@
                 <attribute name="readonly">[('parent.static_qty', '=', True)]</attribute>
             </xpath> -->
 
-        </field> -->
+         -->
