@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-08"?>
 
 <odoo>
-
+<data>
     <!-- Inheriting the stock.picking form view -->
     <record id="view_stock_picking_form_inherit" model="ir.ui.view">
         <field name="name">stock.picking.form.inherit</field>
@@ -19,6 +19,7 @@
             </xpath>
         </field>
     </record>
+</data>
 
 </odoo>
             
