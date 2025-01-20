@@ -83,6 +83,11 @@ class StockPicking(models.Model):
             
             # Make the Demand the Done column for read-only
             self.static_qty = True
+
+            # Approve/Reject will become invisible
+            self.approve_reject_button = False
+            
+            self.hide_rfa_button = False
       
       
     # Method will be called for clicking on Reject button      

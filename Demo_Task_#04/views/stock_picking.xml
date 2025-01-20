@@ -9,47 +9,44 @@
         <field name="inherit_id" ref="stock.view_picking_form" />
         <field name="arch" type="xml">
 
-
             <!-- Placing the boolean fields inside the form view -->
-            <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_id']" position="after">
+            <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="validate_rfa_button" invisible="0"/>
                 <field name="hide_rfa_button" invisible="0"/>
                 <field name="approve_reject_button" invisible="0"/>
                 <field name="static_qty" invisible="0"/>
             </xpath>
-        </field>
-    </record>
-</data>
-
-</odoo>
             
-<!-- 
+
             <!-- As there are two Validate button applying conditions on one validate button 
                 and making the second validate invisible -->
             <xpath expr="//button[@name='button_validate'][1]" position="attributes">
-                <attribute name="invisible">[('validate_rfa_button', '=', False)]</attribute>
+                <attribute name="invisible">state in ('draft', 'confirmed', 'done', 'cancel') or validate_rfa_button == False</attribute>
             </xpath>
             <xpath expr="//button[@name='button_validate'][2]" position="attributes">
-                <attribute name="invisible">[('validate_rfa_button', '=', False)]</attribute>
+                <attribute name="invisible">state in ('waiting', 'assigned', 'done', 'cancel') or validate_rfa_button == False</attribute>
             </xpath>
 
 
             <!-- Creating the RFA button and applying conditions on it -->
             <xpath expr="//button[@name='button_validate']" position="after">
-                <button name="action_request_for_approval" type="object" string="Request for Approval" groups="Demo_Task_#04.groups_for_receipt_status" class="btn-primary" invisible= "['|', ('validate_rfa_button', '=', True), ('hide_rfa_button', '=', True)]" />
+                <button name="action_request_for_approval" type="object" string="Request for Approval" groups="Demo_Task_#04.groups_for_receipt_status" class="oe_highlight" invisible="validate_rfa_button == True or hide_rfa_button == True"/>
             </xpath>
 
 
             <!-- Creating the Approve & Reject buttons and applying conditions on it -->
             <xpath expr="//button[@name='action_assign']" position="after">
-                <button name="action_approve" type="object" string="Approve" class="btn-success" groups="Demo_Task_#04.groups_for_receipt_approval" invisible= "['|', ('approve_reject_button', '=', False), ('validate_rfa_button', '=', True)]"/>
-                <button name="action_reject" type="object" string="Reject" class="btn-danger" groups="Demo_Task_#04.groups_for_receipt_approval" invisible= "['|', ('approve_reject_button', '=', False), ('validate_rfa_button', '=', True)]"/>
+                <button name="action_approve" type="object" string="Approve" class="btn-success" groups="Demo_Task_#04.groups_for_receipt_approval" invisible="approve_reject_button == False"/>
+                <button name="action_reject" type="object" string="Reject" class="btn-danger" groups="Demo_Task_#04.groups_for_receipt_approval" invisible="approve_reject_button == False"/>
             </xpath>
 
 
             <!-- Making the Demand and Done column as read-only on specific condition -->
-            <!-- <xpath expr="//field[@name='quantity']" position="attributes">
-                <attribute name="readonly">[('parent.static_qty', '=', True)]</attribute>
-            </xpath> -->
+             <xpath expr="//field[@name='quantity']" position="attributes">
+                <attribute name="readonly">parent.static_qty == True</attribute>
+            </xpath> 
+</field>
+        </data>
 
-         -->
+</odoo>
+
