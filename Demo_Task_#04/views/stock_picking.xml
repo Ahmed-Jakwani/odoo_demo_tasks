@@ -43,9 +43,9 @@
 
 
             <!-- Making the Demand and Done column as read-only on specific condition -->
-            <xpath expr="//field[@name='quantity']" position="attributes">
+            <!-- <xpath expr="//field[@name='quantity']" position="attributes">
                 <attribute name="readonly">[('parent.static_qty', '=', True)]</attribute>
-            </xpath>
+            </xpath> -->
 
         </field>
     </record>
