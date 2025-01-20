@@ -43,34 +43,34 @@ class ResPartner(models.Model):
         return super(ResPartner, self).create(values)
     
     @api.model
-    def write(self, values):
+    def write(self, vals_list):
         
         error =[]
         
         # Checking for the phone field
-        if 'phone' in values and values['phone']:
+        if 'phone' in vals_list and vals_list['phone']:
             
             # Searching as if the phone value is associated with any other record, 
             # if associated with multiple record then get the first match
-            validate_phone = self.search([('phone', '=', values['phone']), ('id', '!=', self.id)], limit = 1)
+            validate_phone = self.search([('phone', '=', vals_list['phone']), ('id', '!=', self.id)], limit = 1)
             
             # If associated then add error message in the errors[]
             if validate_phone:
-                error.append(f"The phone number {values['phone']} is already associated with {validate_phone.name}.")
+                error.append(f"The phone number {vals_list['phone']} is already associated with {validate_phone.name}.")
        
         # Checking for the email field
-        if 'email' in values and values['email']:
+        if 'email' in vals_list and vals_list['email']:
             
             # Searching as if the email value is associated with any other record,
             # if associated with multiple record then get the first match
-            validate_email = self.search([('email', '=', values['email'])], limit = 1)
+            validate_email = self.search([('email', '=', vals_list['email'])], limit = 1)
             
             # If associated then add error message in the errors[]
             if validate_email:
-                error.append(f"The email {values['email']} is already associated with {validate_email.name}.")
+                error.append(f"The email {vals_list['email']} is already associated with {validate_email.name}.")
                
         # If there are error messages in the list, show them on validation error 
         if error:
             raise ValidationError("\n".join(error))
 
-        return super(ResPartner, self).write(values)
+        return super(ResPartner, self).write(vals_list)
