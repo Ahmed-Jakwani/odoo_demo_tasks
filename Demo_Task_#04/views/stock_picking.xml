@@ -17,8 +17,11 @@
                 <field name="approve_reject_button" invisible="0"/>
                 <field name="static_qty" invisible="0"/>
             </xpath>
-            
+    </record>
 
+</odoo>
+            
+<!-- 
             <!-- As there are two Validate button applying conditions on one validate button 
                 and making the second validate invisible -->
             <xpath expr="//button[@name='button_validate'][1]" position="attributes">
@@ -47,7 +50,4 @@
                 <attribute name="readonly">[('parent.static_qty', '=', True)]</attribute>
             </xpath> -->
 
-        </field>
-    </record>
-
-</odoo>
+        </field> -->
