@@ -23,7 +23,7 @@ class StockPicking(models.Model):
 
 
     # Computing the validate and RFA button on change of Demand and Quantity
-    @api.depends('move_ids_without_package.product_uom_qty', 'move_ids_without_package.quantity')
+    @api.depends('move_ids_without_package.quantity')
     def _compute_validate_rfa_button(self):
         
         # Initially assign a value to the validate button
@@ -53,6 +53,9 @@ class StockPicking(models.Model):
                     
                     # RFA button will not be visible
                     self.hide_rfa_button = False
+
+                    self.static_qty = False
+
                     
                     
                     
