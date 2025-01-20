@@ -12,10 +12,10 @@
 
             <!-- Placing the boolean fields inside the form view -->
             <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='partner_id']" position="after">
-                <field name="validate_rfa_button" invisible="1"/>
-                <field name="hide_rfa_button" invisible="1"/>
-                <field name="approve_reject_button" invisible="1"/>
-                <field name="static_qty" invisible="1"/>
+                <field name="validate_rfa_button" invisible="0"/>
+                <field name="hide_rfa_button" invisible="0"/>
+                <field name="approve_reject_button" invisible="0"/>
+                <field name="static_qty" invisible="0"/>
             </xpath>
             
 
