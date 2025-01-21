@@ -33,7 +33,7 @@
                 <button name="action_request_for_approval" type="object" string="Request for Approval" groups="Demo_Task_#04.groups_for_receipt_status" class="oe_highlight" invisible="validate_rfa_button == True or hide_rfa_button == True"/>
             </xpath>
 
-            <xpath expr="//button[@name='action_detailed_operationse']" position="after">
+            <xpath expr="//button[@name='action_detailed_operations']" position="after">
                 <button name="stock_approval_request" class="oe_stat_button" icon="fa-bars" type="object" help="List view of Stock Approval Request Sent">
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_text">Stock Request</span>
