@@ -101,3 +101,7 @@ class StockPicking(models.Model):
             
             # Hide the Approve and Reject buttons
             self.approve_reject_button = False
+
+    def stock_approval_request(self):
+
+        pass
