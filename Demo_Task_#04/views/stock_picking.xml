@@ -55,6 +55,18 @@
             </xpath> 
 </field>
 </record>
+
+
+        <record id="view_stock_move_line_stock_approval_tree" model="ir.ui.view">
+            <field name="name">stock.move.line.request.approval.list</field>
+            <field name="model">stock.move.line</field>
+            <field name="arch" type="xml">
+                <list editable="bottom" decoration-muted="(state == 'done' and is_locked == True)" multi_edit="1" default_order="result_package_id desc, location_id asc, location_dest_id asc, picking_id asc, id">
+                
+
+                </list>
+            </field>
+        </record>
         </data>
 
 </odoo>
