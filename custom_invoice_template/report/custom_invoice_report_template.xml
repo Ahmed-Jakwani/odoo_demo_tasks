@@ -43,7 +43,7 @@
 
                         </div>
 
-                        <div class="col-2"></div>
+                        <div class="col-2"/>
 
                         <div class="col-5 text-end">
                             <h6>
@@ -80,15 +80,6 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <label>Order No.</label>
-                                </div>
-                                <div class="col-6">
-                                    <!--<t t-esc="o.name"/>-->
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
                                     <label>Posting Date</label>
                                 </div>
                                 <div class="col-6">
@@ -109,7 +100,7 @@
 
                         </div>
 
-                        <div class="col-2"></div>
+                        <div class="col-2"/>
 
                         <div class="col-5 text-end">
                             <br/>
@@ -156,7 +147,7 @@
 
 
                 <div class="page">
-                    <table class="o_has_total_table table o_main_table table-borderless" name="ledger_table">
+                    <table class="o_has_total_table table o_main_table table-borderless" name="line_itmes_table">
                         <thead style="border-bottom:1px solid black">
                             <tr>
                                 <th>
@@ -217,7 +208,109 @@
 
                 </div>
 
+                <br/>
 
+                <div class="container">
+                    <div class="row d-flex justify-content-between">
+
+
+                        <div class="col-6">
+
+                            <div class="row">
+                                <label>End User:</label>
+                                <!--<t t-esc="o.amount_untaxed"/>-->
+                            </div>
+                            <br/>
+
+                            <div class="row">
+                                <strong>Total Amount in Words:</strong>
+                                <span t-esc="o.currency_id.amount_to_text(o.amount_total)"/>
+                            </div>
+
+                        </div>
+
+                        <div class="col-2"/>
+
+                        <div class="col-4" style="font-size: 15px;">
+
+
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Untaxed Amount:</strong>
+                                </div>
+                                <div class="col-4">
+                                    <t t-esc="o.amount_untaxed"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Sales Tax:</strong>
+                                </div>
+                                <div class="col-4">
+                                    <t t-esc="o.amount_tax"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Inc. of ST</strong>
+                                </div>
+                                <div class="col-4">
+                                    <!--<t t-esc="o.amount_total"/>-->
+                                </div>
+                            </div>
+                            <div class="row" style="border-bottom:1px solid black">
+                                <div class="col-8">
+                                    <strong>Advance Tax 0.5%</strong>
+                                </div>
+                                <div class="col-4">
+                                    <!--<t t-esc="o.amount_total"/>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Total Invoice Amount</strong>
+                                </div>
+                                <div class="col-4">
+                                    <t t-esc="o.amount_total"/>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="container">
+                    <br/>
+                    <div class="row">
+
+                        <div class="col-6">
+
+                            <strong>Note:</strong>
+                            <br/>
+                            <p t-esc="o.narration"/>
+                        </div>
+
+                        <div class="col-6">
+
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <p t-esc="" />
+                            <strong style="border-top:1px solid black; display: inline-block; padding-top: 5px;">Recipient Signature</strong>
+                        </div>
+
+                        <div class="col-6">
+                            <p t-esc=""/>
+                            <strong style="border-top:1px solid black; display: inline-block; padding-top: 5px;">Authorized Signatory</strong>
+                        </div>
+                    </div>
+
+
+                </div>
 
 
 
@@ -226,13 +319,12 @@
                         <div class="text-end text-muted">
                             <div t-if="report_type == 'pdf' and display_name_in_footer" t-out="o.name">(document name)</div>
                             <div t-if="report_type == 'pdf'">Page <span class="page"/>
- /                            <span class="topage"/>
+                            /<span class="topage"/>
                         </div>
                     </div>
                 </div>
             </div>
 
         </t>
-    </t>
 </template>
 </odoo>
