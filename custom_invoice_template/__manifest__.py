@@ -7,6 +7,8 @@
     'author': 'Ahmed Jakwani',
     'depends': ['base'],
     'data': [
+        'data/custom_invoice_paperformat.xml'
+        
         'report/custom_invoice_report_template.xml',
         'report/custom_invoice_report_action.xml'
     ],
