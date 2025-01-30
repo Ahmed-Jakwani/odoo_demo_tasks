@@ -8,31 +8,33 @@
 
                 <t t-set="o" t-value="docs"/>
 
-                <div class="d-flex justify-content-end mb-2">
+                <div class="container">
+                <div class="d-flex justify-content-end">
                     <img t-if="o.company_id.logo" class="o_company_logo_small" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo" style="height: 50px;"/>
                 </div>
 
-                <div class="d-flex justify-content-end mb-2">
-                    <h3>
-                        <dt>Sales Tax - Invoice</dt>
-                    </h3>
+                <div class="d-flex justify-content-end">
+                    <h4>
+                        <strong>Sales Tax - Invoice</strong>
+                    </h4>
+                </div>
                 </div>
 
                 <div class="container">
-                    <div class="row d-flex justify-content-between">
+                    <div class="row d-flex">
 
 
-                        <div class="col-5">
+                        <div class="col-5"  style="font-size: 14px;">
                             <h6>
-                                <dt>
+                                <strong>
                                     <t t-esc="o.partner_id.name"/>
-                                </dt>
+                                </strong>
                             </h6>
-                            <t t-esc="o.partner_id.contact_address_complete"/>
+                            <p t-esc="o.partner_id.contact_address_complete"/>
 
                             <div class="row" style="font-size: 13px;">
                                 <div class="col-6">
-                                    <label>Customer Phone No.</label>
+                                    <span>Customer Phone No.</span>
                                 </div>
                                 <div class="col-6">
                                     <t t-esc="o.partner_id.phone"/>
@@ -45,20 +47,40 @@
 
                         <div class="col-2"/>
 
-                        <div class="col-5 text-end">
+                        <div class="col-5 text-end"  style="font-size: 14px;">
                             <h6>
-                                <dt>
+                                <strong>
                                     <t t-esc="o.company_id.partner_id.name"/>
-                                </dt>
+                                </strong>
                             </h6>
-                            <t t-esc="o.company_id.partner_id.contact_address_complete"/>
-                            <div style="font-size: 13px;">
-                                <label>Phone No.:</label>
-                                <t t-esc="o.company_id.partner_id.phone"/>
-                                <br/>
-                                <label>Fax No.:</label>
-                                <!--<t t-esc="o.company_id.partner_id.phone"/>-->
+                            <p t-esc="o.company_id.partner_id.contact_address_complete"/>
+                            
+                            <div class="row" style="font-size: 13px;">
+                                <div class="col-6">
+                                    <span>Phone No.:</span>
+                                </div>
+                                <div class="col-6">
+                                    <t t-esc="o.company_id.partner_id.phone"/>
+                                </div>
+
                             </div>
+                            <div class="row" style="font-size: 13px;">
+                                <div class="col-6">
+                                    <span>Fax No.:</span>
+                                </div>
+                                <div class="col-6">
+                                    <t t-esc=""/> <!-- Fax number field -->
+                                </div>
+
+                            </div>
+                            
+                            <!--<div style="font-size: 13px;">-->
+                            <!--    <label>Phone No.:</label>-->
+                            <!--    <t t-esc="o.company_id.partner_id.phone"/>-->
+                            <!--    <br/>-->
+                            <!--    <label>Fax No.:</label>-->
+                                <!--<t t-esc="o.company_id.partner_id.phone"/>-->
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>
@@ -299,7 +321,7 @@
                     </div>
                     <div class="row text-center">
                         <div class="col-6">
-                            <p t-esc="" />
+                            <p t-esc=""/>
                             <strong style="border-top:1px solid black; display: inline-block; padding-top: 5px;">Recipient Signature</strong>
                         </div>
 
